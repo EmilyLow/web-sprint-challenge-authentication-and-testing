@@ -36,3 +36,27 @@ describe('login', () => {
 
     })
 })
+
+describe('register', () => {
+    it("should return 409 if user already exists", async () => {
+        const expectedStatusCode = 409;
+        const res = await request(server)
+            .post("/api/auth/register")
+            .send({username: "User1", password: "password"})
+        // console.log("res", res);
+        expect(res.statusCode).toBe(expectedStatusCode) 
+        // expect(1).toBe(1)
+
+    })
+    it("should return 200 if user registers", async () => {
+        const expectedStatusCode = 201;
+        const res = await request(server)
+            .post("/api/auth/register")
+            .send({username: "User11", password: "password"})
+        // console.log("res", res);
+        expect(res.statusCode).toBe(expectedStatusCode) 
+        // expect(1).toBe(1)
+         
+
+    })
+})
