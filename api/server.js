@@ -25,7 +25,8 @@ server.use(session({
 }))
 
 server.use('/api/auth', authRouter);
-server.use('/api/jokes', authenticate, jokesRouter);
+// server.use('/api/jokes', authenticate, jokesRouter);
+server.use('/api/jokes', jokesRouter);
 
 //Me
 server.use((err, req, res, next) => {
